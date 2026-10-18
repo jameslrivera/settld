@@ -1746,6 +1746,66 @@ def get_agent(agent_id: str) -> dict:
     return a
 
 
+BOOKS_PROMPT = """You answer questions about the books of {shop}, a shop on the Settld payment network, for its owner. Every payment below settled in USDC on Solana; card means a customer tapped a Settld card at the counter, agent means a customer's agent ordered and paid on its own. The Settld fee is {fee_pct}% of each paid total and the net is what the shop keeps. Stopped payments were never charged. Order numbers are counted across the whole network, so gaps between this shop's numbers are normal.
+
+Answer only from the ledger and summary below. Be short and plain: a sentence or two, or a few short lines when the owner asks for a breakdown. Give dollar amounts with two decimals. Plain text only: no markdown, asterisks, headings or tables. If the ledger cannot answer the question, say what is missing. When a question is about an audit, point to the matching rows by order number and note that each one has a Solana signature the auditor can check.
+
+Summary:
+{summary}
+
+Ledger (oldest first):
+{ledger}"""
+
+
+class BooksQuestion(BaseModel):
+    question: str
+    history: list[dict] = []
+
+
+def dollars(cents: int | None) -> str:
+    return f"${(cents or 0) / 100:,.2f}"
+
+
+def books_offline(b: dict, q: str) -> str:
+    s = b["summary"]
+    t = q.lower()
+    if "tax" in t:
+        return f"You collected {dollars(s['tax_cents'])} in sales tax on {dollars(s['sales_cents'])} of taxable sales across {s['paid']} paid orders."
+    if "agent" in t:
+        a = s["by_source"]["agent"]
+        return f"Agents placed {a['count']} paid orders worth {dollars(a['cents'])}. Every one names the person it ordered for."
+    if "fee" in t or "net" in t or "keep" in t:
+        return f"Gross {dollars(s['gross_cents'])}, Settld fee {dollars(s['fee_cents'])}, net to you {dollars(s['net_cents'])}."
+    if "top" in t or "best" in t or "item" in t:
+        top = s["top_items"][:3]
+        return "Top sellers: " + "; ".join(f"{i['item']} ({i['count']} sold, {dollars(i['cents'])})" for i in top) + "." if top else "No sales yet."
+    return f"{s['paid']} paid orders for {dollars(s['gross_cents'])}, {s['stopped']} stopped before charging. Net to you after the Settld fee: {dollars(s['net_cents'])}."
+
+
+def books_answer(mid: int, q: BooksQuestion) -> str:
+    b = ctx.books(mid)
+    if client is None:
+        return books_offline(b, q.question)
+    s = b["summary"]
+    summary = json.dumps({k: (dollars(v) if k.endswith("_cents") else v) for k, v in s.items() if k not in ("by_hour",)} | {
+        "sales_by_hour": {f"{h:02d}:00": dollars(c) for h, c in enumerate(s["by_hour"]) if c},
+        "from": ctx.iso(s["from"]) if s["from"] else None, "to": ctx.iso(s["to"]) if s["to"] else None,
+    }, default=str)
+    lines = ["order | time | item | paid by | agent for | total | tax | tip | fee | net | status | solana signature"]
+    for r in reversed(b["rows"][:300]):
+        lines.append(" | ".join(str(x) for x in (r["order"], ctx.iso(r["ts"]), r["item"], r["source"], r["owner_name"] or "", dollars(r["total_cents"]), dollars(r["tax_cents"]),
+                                                   dollars(r["tip_cents"]), dollars(r["fee_cents"]), dollars(r["net_cents"]), r["status"] + (f" ({r['reason']})" if r["reason"] and r["status"] != "paid" else ""), (r["sig"] or "")[:16])))
+    system = BOOKS_PROMPT.format(shop=b["name"], fee_pct=s["fee_bps"] / 100, summary=summary, ledger="\n".join(lines))
+    roles = {"user": "user", "reply": "assistant"}
+    messages = [{"role": roles[m["role"]], "content": str(m.get("content", ""))[:2000]} for m in q.history[-8:] if m.get("role") in roles]
+    messages.append({"role": "user", "content": q.question.strip()[:1000]})
+    extra = {"workspace_id": WORKSPACE} if WORKSPACE else {}
+    msg = client.beta.messages.create(model=MODEL, max_tokens=4000, system=system, messages=messages, output_config={"effort": "low"},
+                                      betas=["server-side-fallback-2026-07-01"], fallbacks="default", **extra)
+    text = "".join(blk.text for blk in msg.content if blk.type == "text").strip()
+    return text or books_offline(b, q.question)
+
+
 def mount(app: FastAPI, main) -> None:
     global ctx, client
     ctx = main
@@ -1934,6 +1994,19 @@ def mount(app: FastAPI, main) -> None:
         running.add(a["id"])
         asyncio.create_task(asyncio.to_thread(run_turn, a, text, False, sender))
         return {"ok": True, "agent": a["id"], "reply": f"Got it, {first}. I'm asking {owner} to approve it now."}
+
+    @app.post("/merchants/{merchant_id}/ask")
+    async def post_books_question(merchant_id: int, q: BooksQuestion, x_shop_token: str | None = Header(default=None), x_admin_token: str | None = Header(default=None)):
+        ctx.require_shop(x_shop_token, x_admin_token, "asking about the books")
+        if merchant_id not in ctx.MERCHANTS:
+            raise HTTPException(404, "no such shop")
+        if not q.question.strip():
+            raise HTTPException(400, "Empty question.")
+        try:
+            return {"answer": await asyncio.to_thread(books_answer, merchant_id, q)}
+        except Exception as e:
+            print("books question failed:", e)
+            return {"answer": books_offline(ctx.books(merchant_id), q.question), "offline": True}
 
     @app.post("/agents/{agent_id}/tasks/close")
     async def post_close_tasks(agent_id: str, x_owner_token: str | None = Header(default=None), x_admin_token: str | None = Header(default=None)):

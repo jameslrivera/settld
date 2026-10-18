@@ -290,6 +290,9 @@ def record_merchant(ev: dict) -> None:
     row = {k: ev.get(k) for k in ("seq", "ts", "uid", "item", "amount_cents", "approved", "score", "latency_ms", "sig", "explorer")}
     o = ev.get("order") or {}
     row.update({k: o.get(k, 0) for k in ("subtotal_cents", "tax_cents", "tip_cents")})
+    ag = ev.get("agent") or {}
+    row.update({"source": "agent" if ev.get("kind") == "agent" else "card", "agent_name": ag.get("name"), "owner_name": ag.get("owner_name"),
+                "reason": ((ev.get("reasons") or [{}])[0] or {}).get("feature")})
     st["recent"].insert(0, row)
     del st["recent"][LEDGER_ROWS:]
 
@@ -873,6 +876,77 @@ def tax_log(merchant_id: int):
     rows.append(["TOTAL", "", money(taxable), money(tax_due), "", ""])
     header = ["date", "order", "taxable sales", "tax collected", "total charged", "solana signature"]
     return csv_response(csv_bytes(header, rows), f"settld-tax-{merchant_id}.csv")
+
+
+SETTLD_FEE_BPS = int(os.environ.get("SETTLD_FEE_BPS", "200"))
+
+
+def book_rows(merchant_id: int) -> list[dict]:
+    agent_by_sig = {o.get("sig"): o for o in agent_layer.agent_orders.get(merchant_id, []) if o.get("sig")}
+    out = []
+    for r in ledger_rows(merchant_id):
+        o = agent_by_sig.get(r.get("sig"))
+        source = r.get("source") or ("agent" if o else "card")
+        paid = bool(r.get("approved"))
+        total = r.get("amount_cents") or 0
+        sub = r.get("subtotal_cents") or (total if paid else 0)
+        fee = round(total * SETTLD_FEE_BPS / 10000) if paid else 0
+        out.append({
+            "ts": r.get("ts"), "order": r.get("seq"), "item": r.get("item") or "Purchase", "source": source,
+            "agent_name": r.get("agent_name") or (o or {}).get("agent_name"), "owner_name": r.get("owner_name") or (o or {}).get("owner_name"),
+            "card": mask_uid(r.get("uid") or ""), "status": "paid" if paid else "stopped", "reason": r.get("reason"),
+            "subtotal_cents": sub if paid else 0, "tax_cents": (r.get("tax_cents") or 0) if paid else 0, "tip_cents": (r.get("tip_cents") or 0) if paid else 0,
+            "total_cents": total, "fee_cents": fee, "net_cents": total - fee if paid else 0,
+            "risk": round(r.get("score") or 0, 4), "latency_ms": r.get("latency_ms"), "sig": r.get("sig"), "explorer": r.get("explorer"),
+        })
+    return out
+
+
+def book_summary(rows: list[dict]) -> dict:
+    paid = [r for r in rows if r["status"] == "paid"]
+    stopped = [r for r in rows if r["status"] != "paid"]
+    hours = [0] * 24
+    items: dict[str, list[int]] = {}
+    for r in paid:
+        hours[dt.datetime.fromtimestamp(r["ts"] or 0).hour] += r["total_cents"]
+        it = items.setdefault(r["item"], [0, 0])
+        it[0] += 1
+        it[1] += r["total_cents"]
+    s = lambda rs, k: sum(r[k] for r in rs)
+    by_source = {src: {"count": len([r for r in paid if r["source"] == src]), "cents": s([r for r in paid if r["source"] == src], "total_cents")} for src in ("card", "agent")}
+    lat = [r["latency_ms"] for r in paid if r["latency_ms"] is not None]
+    return {
+        "from": min((r["ts"] for r in rows), default=None), "to": max((r["ts"] for r in rows), default=None),
+        "paid": len(paid), "stopped": len(stopped), "stopped_cents": s(stopped, "total_cents"),
+        "gross_cents": s(paid, "total_cents"), "sales_cents": s(paid, "subtotal_cents"), "tax_cents": s(paid, "tax_cents"), "tips_cents": s(paid, "tip_cents"),
+        "fee_cents": s(paid, "fee_cents"), "net_cents": s(paid, "net_cents"), "fee_bps": SETTLD_FEE_BPS,
+        "avg_ticket_cents": round(s(paid, "total_cents") / len(paid)) if paid else 0,
+        "avg_latency_ms": round(sum(lat) / len(lat)) if lat else None,
+        "on_chain": len([r for r in rows if r["sig"]]), "by_source": by_source, "by_hour": hours,
+        "top_items": [{"item": k, "count": v[0], "cents": v[1]} for k, v in sorted(items.items(), key=lambda kv: -kv[1][1])[:8]],
+    }
+
+
+@app.get("/merchants/{merchant_id}/books")
+def books(merchant_id: int):
+    if merchant_id not in MERCHANTS:
+        raise HTTPException(404, "no such shop")
+    rows = book_rows(merchant_id)
+    name, category = MERCHANTS[merchant_id]
+    return {"merchant_id": merchant_id, "name": name, "category": category, "address": MERCHANT_ADDR.get(merchant_id, ""), "summary": book_summary(rows), "rows": list(reversed(rows))}
+
+
+@app.get("/merchants/{merchant_id}/audit.csv")
+def audit_log(merchant_id: int):
+    if merchant_id not in MERCHANTS:
+        raise HTTPException(404, "no such shop")
+    rows = [[
+        iso(r["ts"]), r["order"], r["item"], r["source"], r["agent_name"] or "", r["owner_name"] or "", r["card"],
+        money(r["subtotal_cents"]), money(r["tax_cents"]), money(r["tip_cents"]), money(r["total_cents"]), money(r["fee_cents"]), money(r["net_cents"]),
+        r["status"], r["reason"] or "", f"{r['risk']:.4f}", r["sig"] or "",
+    ] for r in book_rows(merchant_id)]
+    header = ["date", "order", "item", "paid by", "agent", "on behalf of", "card", "subtotal", "tax", "tip", "total", "settld fee", "net to shop", "status", "stop reason", "risk score", "solana signature"]
+    return csv_response(csv_bytes(header, rows), f"settld-audit-{merchant_id}.csv")
 
 
 class Tap(BaseModel):
