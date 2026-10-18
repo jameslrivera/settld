@@ -1,0 +1,1082 @@
+[
+ {
+  "id": 1,
+  "name": "Land of a Thousand Hills Coffee",
+  "category": "coffee",
+  "chain_category": 1,
+  "kind": "pickup",
+  "address": "Flatiron Building, 84 Peachtree St NW, Atlanta, GA 30303",
+  "geo": [
+   33.7559,
+   -84.3889
+  ],
+  "accepts_agents": true,
+  "max_ticket_cents": 2500,
+  "menu": [
+   {
+    "category": "Espresso Drinks",
+    "item": "Latte",
+    "cents": 550,
+    "desc": "One or two shots of espresso topped with steamed milk and a thin layer of foam.",
+    "image": "/menu/1/latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Caramanilla Latte",
+    "cents": 650,
+    "desc": "Double espresso with rich caramel sauce and sweet vanilla syrup, balanced with steamed milk.",
+    "image": "/menu/1/caramanilla-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Manu Latte",
+    "cents": 600,
+    "desc": "Double espresso infused with vanilla syrup and a dusting of cinnamon, with steamed milk.",
+    "image": "/menu/1/manu-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Americano",
+    "cents": 425,
+    "desc": "Espresso over hot water, 12 or 16 oz.",
+    "image": "/menu/1/americano.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Cappuccino",
+    "cents": 500,
+    "desc": "Double espresso with textured milk and foam, 8 oz.",
+    "image": "/menu/1/cappuccino.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "CinnaHoney Latte",
+    "cents": 650,
+    "desc": "Double espresso with natural honey syrup and warm cinnamon, with steamed milk.",
+    "image": "/menu/1/cinnahoney-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Cortado",
+    "cents": 425,
+    "desc": "Two shots of espresso with an equal pour of steamed milk.",
+    "image": "/menu/1/cortado.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Dirty Chai Latte",
+    "cents": 650,
+    "desc": "Spiced black tea with a double shot of espresso and steamed milk, 12 oz.",
+    "image": "/menu/1/dirty-chai-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Double Espresso",
+    "cents": 400,
+    "desc": "A demitasse of Vooba Vooba espresso.",
+    "image": "/menu/1/double-espresso.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Flat White",
+    "cents": 450,
+    "desc": "Double espresso with microfoamed milk; smooth and balanced.",
+    "image": "/menu/1/flat-white.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Macchiato",
+    "cents": 425,
+    "desc": "Espresso stained with a small amount of hot, frothed milk.",
+    "image": "/menu/1/macchiato.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Mocha Latte",
+    "cents": 600,
+    "desc": "Double espresso with dark chocolate sauce and steamed milk; hot or iced.",
+    "image": "/menu/1/mocha-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Shaken Espresso",
+    "cents": 475,
+    "desc": "Double espresso shaken with ice and a hint of simple syrup, topped with a splash of milk.",
+    "image": "/menu/1/shaken-espresso.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso Drinks",
+    "item": "Sweet Sevyn Latte",
+    "cents": 700,
+    "desc": "Signature double espresso with caramel sauce and vanilla syrup, steamed milk and foam.",
+    "image": "/menu/1/sweet-sevyn-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "12oz Drip Coffee",
+    "cents": 350,
+    "desc": "Freshly brewed signature roast, 12 oz.",
+    "image": "/menu/1/12oz-drip-coffee.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "16oz Drip Coffee",
+    "cents": 400,
+    "desc": "The house roast, scaled up for bigger mornings.",
+    "image": "/menu/1/16oz-drip-coffee.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Café au Lait",
+    "cents": 450,
+    "desc": "Brewed coffee and steamed milk, minus the foam.",
+    "image": "/menu/1/caf-au-lait.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Cold Brew",
+    "cents": 550,
+    "desc": "Slow brewed over 12 hours.",
+    "image": "/menu/1/cold-brew.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Blended Chills",
+    "item": "Bombo Chill",
+    "cents": 800,
+    "desc": "\"Bombo\" means sweet in Kinyarwanda. Chocolate, caramel and espresso, blended.",
+    "image": "/menu/1/bombo-chill.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Blended Chills",
+    "item": "Rwandan Chill",
+    "cents": 800,
+    "desc": "Vanilla, caramel and espresso, blended with ice.",
+    "image": "/menu/1/rwandan-chill.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Blended Chills",
+    "item": "Sweet Matcha Chill",
+    "cents": 825,
+    "desc": "Ceremonial-grade matcha blended with sweetened milk and ice, topped with whipped cream.",
+    "image": "/menu/1/sweet-matcha-chill.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Blended Chills",
+    "item": "Vanilla Chai Chill",
+    "cents": 800,
+    "desc": "Chai tea blended with a dairy base.",
+    "image": "/menu/1/vanilla-chai-chill.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Refreshers",
+    "item": "Sevyn Summers Refresher",
+    "cents": 600,
+    "desc": "Sweet mango at the base, topped with passionfruit and peach. Tart and fruity.",
+    "image": "/menu/1/sevyn-summers-refresher.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Refreshers",
+    "item": "Peach Refresher",
+    "cents": 575,
+    "desc": "Peach puree and lemonade with clear energy and club soda, over ice.",
+    "image": "/menu/1/peach-refresher.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Refreshers",
+    "item": "Mango Refresher",
+    "cents": 575,
+    "desc": "Mango puree, lemonade and club soda with clear energy, over ice.",
+    "image": "/menu/1/mango-refresher.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Golden Skies Chai",
+    "cents": 575,
+    "desc": "Chai concentrate, brown sugar syrup and steamed milk, dusted with cinnamon. Hot or iced.",
+    "image": "/menu/1/golden-skies-chai.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Caramel Apple Dream",
+    "cents": 675,
+    "desc": "Double espresso with apple syrup and milk over ice, crowned with salted caramel cold foam.",
+    "image": "/menu/1/caramel-apple-dream.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Earl Grey",
+    "cents": 425,
+    "desc": "Premium black tea with the citrus note of bergamot.",
+    "image": "/menu/1/earl-grey.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Jasmine Green",
+    "cents": 425,
+    "desc": "Delicate green tea scented with fresh jasmine blossoms.",
+    "image": "/menu/1/jasmine-green.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Mint",
+    "cents": 425,
+    "desc": "Refreshing herbal infusion of aromatic mint leaves.",
+    "image": "/menu/1/mint.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Hot Chocolate Milk",
+    "cents": 350,
+    "desc": "Steamed chocolate milk.",
+    "image": "/menu/1/hot-chocolate-milk.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Lemonade 12oz",
+    "cents": 500,
+    "desc": "Housemade lemonade.",
+    "image": "/menu/1/lemonade-12oz.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Orange Juice",
+    "cents": 450,
+    "desc": "Personal size orange juice.",
+    "image": "/menu/1/orange-juice.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Apple Juice",
+    "cents": 350,
+    "desc": "Personal size apple juice.",
+    "image": "/menu/1/apple-juice.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Bottled Water",
+    "cents": 375,
+    "desc": "Personal size bottle of water.",
+    "image": "/menu/1/bottled-water.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Cold Milk",
+    "cents": 250,
+    "desc": "Ice-cold whole milk.",
+    "image": "/menu/1/cold-milk.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Pastries",
+    "item": "Butter Croissant",
+    "cents": 450,
+    "desc": "Handmade French pastry with light, airy, buttery layers and a flaky crust.",
+    "image": "/menu/1/butter-croissant.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Pastries",
+    "item": "Blueberry Muffin",
+    "cents": 450,
+    "desc": "Bakery muffin with a golden domed top, studded with plump blueberries.",
+    "image": "/menu/1/blueberry-muffin.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Pastries",
+    "item": "Apple Cinnamon Coffee Cake",
+    "cents": 650,
+    "desc": "Moist cake with sweet apples, buttery cinnamon streusel and powdered sugar.",
+    "image": "/menu/1/apple-cinnamon-coffee-cake.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Pastries",
+    "item": "Plain Bagel",
+    "cents": 500,
+    "desc": "Toasted plain bagel with cream cheese.",
+    "image": "/menu/1/plain-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Pastries",
+    "item": "Everything Bagel",
+    "cents": 550,
+    "desc": "Toasted everything bagel with cream cheese.",
+    "image": "/menu/1/everything-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Pastries",
+    "item": "Onion Bagel",
+    "cents": 550,
+    "desc": "Toasted onion bagel with caramelized onion baked into the crust.",
+    "image": "/menu/1/onion-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Snacks",
+    "item": "Avocado Toast Snack",
+    "cents": 400,
+    "desc": "Chunky avocado spread with toast, grab and go.",
+    "image": "/menu/1/avocado-toast-snack.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Snacks",
+    "item": "Chobani Blueberry",
+    "cents": 300,
+    "desc": "Greek yogurt blended with real blueberries.",
+    "image": "/menu/1/chobani-blueberry.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Snacks",
+    "item": "Chobani Strawberry",
+    "cents": 300,
+    "desc": "Greek yogurt blended with real strawberries.",
+    "image": "/menu/1/chobani-strawberry.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Snacks",
+    "item": "Lenka Granola Bar",
+    "cents": 300,
+    "desc": "Toasted oats and sweet fruit.",
+    "image": "/menu/1/lenka-granola-bar.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagged Coffee",
+    "item": "Kira Ikawa",
+    "cents": 1750,
+    "desc": "Dark and chocolatey with a smooth nuttiness. Coffee for coffee people.",
+    "image": "/menu/1/kira-ikawa.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagged Coffee",
+    "item": "Muraho Morning",
+    "cents": 1750,
+    "desc": "A perfect hello to your morning. Medium roast, Rwanda, washed. Stone fruit, almond, cocoa.",
+    "image": "/menu/1/muraho-morning.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagged Coffee",
+    "item": "Single Origin Kivu Lake",
+    "cents": 1900,
+    "desc": "Smooth and sweet with a fruity brightness. Cherry, vanilla, floral.",
+    "image": "/menu/1/single-origin-kivu-lake.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagged Coffee",
+    "item": "Single Origin Ruli Mountain",
+    "cents": 1900,
+    "desc": "Light, sweet and a little floral. The signature roast. Lemon, honey, cocoa.",
+    "image": "/menu/1/single-origin-ruli-mountain.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagged Coffee",
+    "item": "Vooba Vooba Espresso",
+    "cents": 1900,
+    "desc": "The espresso standard. Chocolate orange with a kick. Rwanda and Brazil.",
+    "image": "/menu/1/vooba-vooba-espresso.jpg",
+    "fulfillment": "pickup"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "name": "Data desk",
+  "category": "data",
+  "chain_category": 2,
+  "kind": "digital",
+  "address": "25 Park Place NE, Atlanta, GA 30303",
+  "geo": [
+   33.7549,
+   -84.3872
+  ],
+  "accepts_agents": true,
+  "max_ticket_cents": 1000,
+  "menu": [
+   {
+    "category": "Snapshots",
+    "item": "Weather snapshot",
+    "cents": 25,
+    "desc": "Current conditions for a place, from the live weather feed.",
+    "fulfillment": "text",
+    "job": "weather"
+   },
+   {
+    "category": "Snapshots",
+    "item": "Market snapshot",
+    "cents": 100,
+    "desc": "Spot prices for SOL, BTC, ETH and USDC with the 24 hour change.",
+    "fulfillment": "text",
+    "job": "market"
+   },
+   {
+    "category": "Lookups",
+    "item": "Business lookup",
+    "cents": 200,
+    "desc": "Address, coordinates and a map link for a named business.",
+    "fulfillment": "text",
+    "job": "business"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Research agent",
+  "category": "research",
+  "chain_category": 3,
+  "kind": "digital",
+  "address": "Central Library, 1 Margaret Mitchell Square NW, Atlanta, GA 30303",
+  "geo": [
+   33.7566,
+   -84.3878
+  ],
+  "accepts_agents": true,
+  "max_ticket_cents": 2000,
+  "menu": [
+   {
+    "category": "Research",
+    "item": "Price check",
+    "cents": 100,
+    "desc": "A typical price range for one thing, with the reasoning behind it.",
+    "fulfillment": "file",
+    "job": "price_check"
+   },
+   {
+    "category": "Research",
+    "item": "Summarize a document",
+    "cents": 300,
+    "desc": "A short summary of a document or web page you point at.",
+    "fulfillment": "file",
+    "job": "summarize"
+   },
+   {
+    "category": "Research",
+    "item": "Compare three options",
+    "cents": 500,
+    "desc": "Three options for a decision, compared side by side, with a pick.",
+    "fulfillment": "file",
+    "job": "compare"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Compute shop",
+  "category": "compute",
+  "chain_category": 4,
+  "kind": "digital",
+  "address": "56 Marietta St NW, Atlanta, GA 30303",
+  "geo": [
+   33.7563,
+   -84.3906
+  ],
+  "accepts_agents": true,
+  "max_ticket_cents": 2000,
+  "menu": [
+   {
+    "category": "Compute",
+    "item": "10 minutes of compute",
+    "cents": 200,
+    "desc": "A statistics summary over the shop's sample dataset, run on demand.",
+    "fulfillment": "text",
+    "job": "stats_basic"
+   },
+   {
+    "category": "Compute",
+    "item": "30 minutes of compute",
+    "cents": 500,
+    "desc": "The full summary plus a weekday breakdown and a seven day trend.",
+    "fulfillment": "text",
+    "job": "stats_full"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "name": "Pass office",
+  "category": "parking",
+  "chain_category": 5,
+  "kind": "digital",
+  "address": "Underground Atlanta, 50 Upper Alabama St SW, Atlanta, GA 30303",
+  "geo": [
+   33.7527,
+   -84.39
+  ],
+  "accepts_agents": true,
+  "max_ticket_cents": 1500,
+  "menu": [
+   {
+    "category": "Passes",
+    "item": "2-hour parking pass",
+    "cents": 300,
+    "desc": "Two hours of parking downtown, as a QR pass signed by the office.",
+    "fulfillment": "qr",
+    "job": "parking_2h"
+   },
+   {
+    "category": "Passes",
+    "item": "Day pass",
+    "cents": 600,
+    "desc": "All day parking downtown, as a QR pass signed by the office.",
+    "fulfillment": "qr",
+    "job": "day_pass"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "name": "Kaldi's Coffee",
+  "category": "coffee",
+  "chain_category": 1,
+  "kind": "pickup",
+  "address": "Emory Student Center, 605 Asbury Circle, Atlanta, GA 30322",
+  "geo": [
+   33.7907,
+   -84.3233
+  ],
+  "accepts_agents": true,
+  "max_ticket_cents": 2500,
+  "menu": [
+   {
+    "category": "Seasonal",
+    "item": "Pumpkin Pie Latte",
+    "cents": 610,
+    "desc": "Fresh baked pumpkin, maple, and cinnamon combined with espresso and milk. 12 oz",
+    "image": "/menu/6/pumpkin-pie-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Iced Pumpkin Pie Latte",
+    "cents": 610,
+    "desc": "Fresh baked pumpkin, maple, and cinnamon combined with espresso and milk. 12 oz",
+    "image": "/menu/6/iced-pumpkin-pie-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Blackberry Sage Shaken Espresso",
+    "cents": 545,
+    "desc": "Espresso shaken with our house-made blackberry sage syrup and finished with creamy oat milk. 12 oz",
+    "image": "/menu/6/blackberry-sage-shaken-espresso.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Toasted Coconut Matcha",
+    "cents": 675,
+    "desc": "A creamy blend of toasted coconut syrup, milk, and Firepot Seiwa Matcha. 12 oz",
+    "image": "/menu/6/toasted-coconut-matcha.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Iced Toasted Coconut Matcha",
+    "cents": 675,
+    "desc": "12 oz",
+    "image": "/menu/6/iced-toasted-coconut-matcha.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Chai Protein Latte",
+    "cents": 635,
+    "desc": "The bold spices of our Firepot Masala Chai, enhanced with a protein blend that adds 12 grams of protein. 12 oz",
+    "image": "/menu/6/chai-protein-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Seasonal",
+    "item": "Iced Chai Protein Latte",
+    "cents": 635,
+    "desc": "The bold spices of our Firepot Masala Chai, enhanced with a protein blend that adds 12 grams of protein. 12 oz",
+    "image": "/menu/6/iced-chai-protein-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Brewed Coffee",
+    "cents": 350,
+    "desc": "Sweet, balanced, and classic house blend brewed daily. 12 oz",
+    "image": "/menu/6/brewed-coffee.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Cafe Au Lait",
+    "cents": 375,
+    "desc": "Drip coffee with steamed milk. 12 oz",
+    "image": "/menu/6/cafe-au-lait.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Coffee & A Shot",
+    "cents": 370,
+    "desc": "12 oz",
+    "image": "/menu/6/coffee-a-shot.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Iced Coffee",
+    "cents": 475,
+    "desc": "Cold brewed coffee concentrate + ice, topped with hot, freshly brewed coffee. 12 oz",
+    "image": "/menu/6/iced-coffee.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Brewed Coffee",
+    "item": "Cold Brew",
+    "cents": 475,
+    "desc": "Our Cold Brew with flavor notes of caramel, chocolate, and citrus. 12 oz",
+    "image": "/menu/6/cold-brew.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Latte",
+    "cents": 490,
+    "desc": "Two shots of espresso and steamed milk. 12 oz",
+    "image": "/menu/6/latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Iced Latte",
+    "cents": 500,
+    "desc": "Two shots of espresso and cold milk. 12 oz",
+    "image": "/menu/6/iced-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Vanilla Latte",
+    "cents": 575,
+    "desc": "House-made vanilla syrup, two shots of espresso, and steamed milk. 12 oz",
+    "image": "/menu/6/vanilla-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Iced Vanilla Latte",
+    "cents": 575,
+    "desc": "House-made vanilla syrup, two shots of espresso, and cold milk. 12 oz",
+    "image": "/menu/6/iced-vanilla-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Mocha",
+    "cents": 575,
+    "desc": "Chocolate, two shots of espresso, and steamed milk. 12 oz",
+    "image": "/menu/6/mocha.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Iced Mocha",
+    "cents": 575,
+    "desc": "Chocolate, two shots of espresso, and cold milk. 12 oz",
+    "image": "/menu/6/iced-mocha.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Highlander Grogg Latte",
+    "cents": 600,
+    "desc": "Our signature latte pairs espresso and milk with our custom Highlander Grogg syrup, with flavors of butterscotch, maple spice, and just a hint of…. 12 oz",
+    "image": "/menu/6/highlander-grogg-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Iced Highlander Grogg Latte",
+    "cents": 600,
+    "desc": "Our signature latte pairs espresso and milk with our custom Highlander Grogg syrup, with flavors of butterscotch, maple spice, and just a hint of…. 12 oz",
+    "image": "/menu/6/iced-highlander-grogg-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "White Mocha",
+    "cents": 575,
+    "desc": "White chocolate, two shots of espresso, and steamed milk. 12 oz",
+    "image": "/menu/6/white-mocha.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Lattes & Mochas",
+    "item": "Iced White Mocha",
+    "cents": 575,
+    "desc": "White chocolate, two shots of espresso, and cold milk. 12 oz",
+    "image": "/menu/6/iced-white-mocha.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Americano",
+    "cents": 400,
+    "desc": "Two shots of espresso and hot water. 12 oz",
+    "image": "/menu/6/americano.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Iced Americano",
+    "cents": 400,
+    "desc": "Three shots of espresso and cold water. 12 oz",
+    "image": "/menu/6/iced-americano.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Espresso",
+    "cents": 375,
+    "desc": "2oz drink including two shots of espresso",
+    "image": "/menu/6/espresso.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Macchiato",
+    "cents": 395,
+    "desc": "3oz drink including two shots of espresso and a dollop of steamed milk",
+    "image": "/menu/6/macchiato.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Cappuccino",
+    "cents": 470,
+    "desc": "6oz drink including two shots of espresso and steamed milk",
+    "image": "/menu/6/cappuccino.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Gibraltar",
+    "cents": 450,
+    "desc": "5oz drink including two shots of espresso and lightly steamed, less hot milk",
+    "image": "/menu/6/gibraltar.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Espresso",
+    "item": "Sidecar",
+    "cents": 480,
+    "desc": "8oz single shot cappuccino served with a single shot on the side",
+    "image": "/menu/6/sidecar.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Hot Chocolate",
+    "cents": 410,
+    "desc": "Chocolate and steamed milk. 12 oz",
+    "image": "/menu/6/hot-chocolate.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Italian Soda",
+    "cents": 375,
+    "desc": "Sauce or syrup + soda water, can add 1/2 & 1/2 and/or whipped cream. 12 oz",
+    "image": "/menu/6/italian-soda.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Not Coffee",
+    "item": "Steamer",
+    "cents": 390,
+    "desc": "Flavored syrup and steamed milk. 12 oz",
+    "image": "/menu/6/steamer.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Iced Tea",
+    "cents": 385,
+    "desc": "12 oz",
+    "image": "/menu/6/iced-tea.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "London Fog",
+    "cents": 415,
+    "desc": "Firepot Tea with Steamed Milk. 12 oz",
+    "image": "/menu/6/london-fog.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Cult of Flowers",
+    "cents": 330,
+    "desc": "Hibiscus Rose Blend. 12 oz",
+    "image": "/menu/6/cult-of-flowers.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "House of Peace",
+    "cents": 330,
+    "desc": "Chamomile Herbal Blend. 12 oz",
+    "image": "/menu/6/house-of-peace.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Soul Revival",
+    "cents": 330,
+    "desc": "Turmeric Chai Black Tea. 12 oz",
+    "image": "/menu/6/soul-revival.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Tea",
+    "item": "Temple of The Sun",
+    "cents": 330,
+    "desc": "Black Breakfast Tea. 12 oz",
+    "image": "/menu/6/temple-of-the-sun.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Matcha & Chai",
+    "item": "Matcha Latte",
+    "cents": 685,
+    "desc": "Our sweetened, organic matcha powder and steamed milk. 12 oz",
+    "image": "/menu/6/matcha-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Matcha & Chai",
+    "item": "Iced Matcha Latte",
+    "cents": 685,
+    "desc": "Our sweetened, organic matcha powder and cold milk. 12 oz",
+    "image": "/menu/6/iced-matcha-latte.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Matcha & Chai",
+    "item": "Hot Matcha (Matcha+Water)",
+    "cents": 460,
+    "desc": "12 oz",
+    "image": "/menu/6/hot-matcha-matcha-water.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Matcha & Chai",
+    "item": "Iced Matcha (Matcha+Water)",
+    "cents": 465,
+    "desc": "12 oz",
+    "image": "/menu/6/iced-matcha-matcha-water.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Matcha & Chai",
+    "item": "Chai",
+    "cents": 550,
+    "desc": "Our sweetened, spiced, and organic masala chai concentrate with steamed milk. 12 oz",
+    "image": "/menu/6/chai.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Matcha & Chai",
+    "item": "Iced Chai",
+    "cents": 550,
+    "desc": "Our sweetened, spiced, and organic masala chai concentrate with cold milk. 12 oz",
+    "image": "/menu/6/iced-chai.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Latte Chilly Goats",
+    "cents": 650,
+    "desc": "Our signature blended latte made with a cold brew coffee concentrate, milk or milk alternative and can be enjoyed as is or with an addition of a…. 12 oz",
+    "image": "/menu/6/latte-chilly-goats.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Mocha Chilly Goats",
+    "cents": 650,
+    "desc": "Our signature blended mocha made with a cold brew coffee concentrate, milk or milk alternative and Monin dark chocolate sauce. 12 oz",
+    "image": "/menu/6/mocha-chilly-goats.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Dark Chocolate Chip Chilly Goats",
+    "cents": 650,
+    "desc": "Chilly Goat Contains Dairy. 12 oz",
+    "image": "/menu/6/dark-chocolate-chip-chilly-goats.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "White Mocha Chilly Goats",
+    "cents": 650,
+    "desc": "Our signature blended mocha made with a cold brew coffee concentrate, milk or milk alternative and Monin white chocolate sauce. 12 oz",
+    "image": "/menu/6/white-mocha-chilly-goats.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Chai Chilly Goats",
+    "cents": 650,
+    "desc": "Chilly Goat Contains Dairy. 12 oz",
+    "image": "/menu/6/chai-chilly-goats.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Matcha Chilly Goats",
+    "cents": 650,
+    "desc": "12 oz",
+    "image": "/menu/6/matcha-chilly-goats.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Peanut Butter Chocolate Banana Smoothie",
+    "cents": 850,
+    "desc": "Banana, peanut butter, cocoa powder, soy protein powder & almond milk",
+    "image": "/menu/6/peanut-butter-chocolate-banana-smoothie.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Strawberry Banana Smoothie",
+    "cents": 850,
+    "desc": "Strawberry, banana, orange juice, pineapple juice & agave",
+    "image": "/menu/6/strawberry-banana-smoothie.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Mango Banana Kale Smoothie",
+    "cents": 850,
+    "desc": "Kale. mango, banana, pineapple juice & orange juice",
+    "image": "/menu/6/mango-banana-kale-smoothie.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Chilly Goats & Smoothies",
+    "item": "Antioxidant Smoothie",
+    "cents": 850,
+    "desc": "Strawberry, blueberry, raspberry, orange & honey",
+    "image": "/menu/6/antioxidant-smoothie.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagels",
+    "item": "Egg & Cheese Bagel",
+    "cents": 899,
+    "desc": "",
+    "image": "/menu/6/egg-cheese-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagels",
+    "item": "Sausage Egg & Cheese Bagel",
+    "cents": 899,
+    "desc": "",
+    "image": "/menu/6/sausage-egg-cheese-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagels",
+    "item": "Bacon Egg & Cheese Bagel",
+    "cents": 899,
+    "desc": "",
+    "image": "/menu/6/bacon-egg-cheese-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Bagels",
+    "item": "Caprese Pesto Bagel",
+    "cents": 899,
+    "desc": "",
+    "image": "/menu/6/caprese-pesto-bagel.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Beans",
+    "item": "Dancing Goats Blend 12oz",
+    "cents": 1900,
+    "desc": "Featuring coffees from each of the world’s growing regions, East Africa, Central America, and Indonesia, Dancing Goats® blend is our most versatile…",
+    "image": "/menu/6/dancing-goats-blend-12oz.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Beans",
+    "item": "Decaf Dancing Goats Blend 12oz",
+    "cents": 1950,
+    "desc": "The rich body and finely detailed flavor is topped off with a floral…",
+    "image": "/menu/6/decaf-dancing-goats-blend-12oz.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Beans",
+    "item": "Decaf Whirling Dervish Organic Fair Trade 12oz",
+    "cents": 1850,
+    "desc": "Decaf Whirling Dervish is dark without being smoky, think dark chocolate and orange with hints of crisp…",
+    "image": "/menu/6/decaf-whirling-dervish-organic-fair-trade-12oz.jpg",
+    "fulfillment": "pickup"
+   },
+   {
+    "category": "Beans",
+    "item": "Whirling Dervish Blend Organic Fair Trade 12oz",
+    "cents": 1850,
+    "desc": "This blend is named after Omar, a mystic and whirling dervish who legend tells was the first person to prepare coffee as a beverage, a discovery that…",
+    "image": "/menu/6/whirling-dervish-blend-organic-fair-trade-12oz.jpg",
+    "fulfillment": "pickup"
+   }
+  ]
+ }
+]

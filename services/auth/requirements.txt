@@ -1,0 +1,9 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+requests>=2.32
+lightgbm>=4.3
+numpy>=1.26
+pyscard>=2.0
+anthropic>=1.13
+segno>=1.6
