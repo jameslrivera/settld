@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #000000;
+  --surface: #121216;
+  --surface-2: #1f1f24;
+  --line: #2e2e35;
+  --ink: #ffffff;
+  --ink-2: #e6e6ea;
+  --ink-3: #a4a4ac;
+  --up: #00c805;
+  --lime: #ff2fb6;
+  --down: #ff5000;
+  --warn: #f5b53f;
+  --on-accent: #ffffff;
+  --chart: var(--up);
+  --brand: #ff2fb6;
+  --brand-2: #b4207f;
+  --shield: #f5b53f;
+}
+
+:root[data-theme="light"] {
+  --bg: #f3f3f6;
+  --surface: #ffffff;
+  --surface-2: #e9e9ee;
+  --line: #cfcfd8;
+  --ink: #000000;
+  --ink-2: #1c1c22;
+  --ink-3: #50505a;
+  --up: #0f9d3c;
+  --down: #d1400c;
+  --warn: #b7791a;
+  --shield: #b7791a;
+  color-scheme: light;
+}
+:root { color-scheme: dark; }
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-up: var(--up);
+  --color-lime: var(--lime);
+  --color-down: var(--down);
+  --color-warn: var(--warn);
+  --color-on-accent: var(--on-accent);
+  --color-chart: var(--chart);
+  --color-shield: var(--shield);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
