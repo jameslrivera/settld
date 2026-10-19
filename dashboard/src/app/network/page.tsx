@@ -222,6 +222,7 @@ export default function Network() {
               </>
             ) : <div className="text-ink-3 text-sm">Waiting for someone to open an account…</div>}
           </Card>
+          {person && <Activity cards={myCards} orders={orders.filter((o) => mine.some((a) => a.id === o.agent))} />}
           <Card title="Know your agent">
             {pp ? (
               <>
@@ -465,6 +466,45 @@ function Ribbon() {
     <svg width="26" height="26" viewBox="0 0 56 64" aria-hidden>
       <path d="M0 10 L44 10 L56 26 L12 26 Z" fill="#ff2fb6" /><path d="M12 26 L56 26 L44 42 L0 42 Z" fill="#b4207f" /><path d="M0 42 L44 42 L56 58 L12 58 Z" fill="#ff2fb6" />
     </svg>
+  );
+}
+
+type Tx = { key: string; ts: number; what: string; detail: string; cents: number; sign: "+" | "−" | ""; ok: boolean; sig: string | null };
+
+function Activity({ cards, orders }: { cards: CardAccount[]; orders: AgentOrder[] }) {
+  const rows: Tx[] = [];
+  for (const c of cards) {
+    const tail = `•••• ${c.card_number.slice(-4)}`;
+    c.history.forEach((h, i) => {
+      const base = { key: `${c.uid}-${i}`, ts: h.ts, cents: h.amount_cents, sig: h.sig ?? null, ok: h.approved !== false };
+      if (h.kind === "deposit") rows.push({ ...base, what: "Money loaded", detail: `card ${tail}`, sign: "+" });
+      else if (h.kind === "tap") rows.push({ ...base, what: h.approved === false ? "Card declined" : "Card payment", detail: `${h.item ?? "Purchase"} · ${h.merchant ?? "shop"}`, sign: "−" });
+      else if (h.kind === "agent_fund") rows.push({ ...base, what: "Moved to agent", detail: `from card ${tail}`, sign: "−" });
+      else if (h.kind === "withdraw") rows.push({ ...base, what: "Withdrawn", detail: "to wallet", sign: "−" });
+      else if (h.kind === "freeze" || h.kind === "unfreeze") rows.push({ ...base, what: h.kind === "freeze" ? "Card locked" : "Card unlocked", detail: `card ${tail}`, cents: 0, sign: "" });
+    });
+  }
+  for (const o of orders) {
+    rows.push({ key: o.id, ts: o.ts, what: o.status === "paid" ? "Agent payment" : "Agent order stopped", detail: `${o.order.item} · ${o.agent_name}`, cents: o.amount_cents, sign: "−", ok: o.status === "paid", sig: o.sig });
+  }
+  rows.sort((a, b) => b.ts - a.ts);
+  return (
+    <Card title="All transactions" right={String(rows.length)}>
+      {rows.length === 0 ? <div className="text-ink-3 text-sm">Nothing yet.</div> : (
+        <ul className="divide-y divide-line -my-1">
+          {rows.map((r) => (
+            <li key={r.key} className="py-2 flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <div className={`text-sm font-medium ${r.ok ? "" : "text-warn"}`}>{r.what}</div>
+                <div className="text-xs text-ink-3 truncate">{r.detail}</div>
+                <div className="text-[10px] text-ink-3">{when(r.ts)}{r.sig && <> · <a className="underline" href={`https://explorer.solana.com/tx/${r.sig}?cluster=devnet`} target="_blank" rel="noreferrer">Solana</a></>}</div>
+              </div>
+              {r.cents > 0 && <div className={`text-sm font-semibold shrink-0 ${r.sign === "+" ? "text-up" : ""} ${r.ok ? "" : "line-through text-ink-3"}`}>{r.sign}{usd(r.cents)}</div>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
   );
 }
 
