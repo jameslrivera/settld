@@ -100,21 +100,30 @@ flowchart LR
 
 ## Architecture
 
-```
-  NFC card ──► reader (ACR1252U) ──► tap_listener.py ─┐
-                                                       │
-  iOS app ─────────────────────────────────────────────┤
-                                                       ▼
-  Kiosk / Business / Network (Next.js) ◄──── WebSocket ─── Payment service (FastAPI :8000)
-                                                       │      ├─ fraud model (LightGBM, in process)
-  iMessage ──► /api/inbox ─────────────────────────────┤      ├─ agents and shop fulfillment
-                                                       │      └─ books and audit export
-                                                       ▼
-                                          Chain sidecar (Node :8787)
-                                                       │
-                                                       ▼
-                                     Settld program on Solana (devnet)
-                                     Config · Card · Merchant · Agent · Intent
+```mermaid
+flowchart TB
+    subgraph In[Ways in]
+        direction LR
+        Card[NFC card + reader]
+        Phone[iOS app]
+        Text[iMessage]
+    end
+
+    subgraph Service[Payment service]
+        direction LR
+        Fraud[Fraud model]
+        Agents[Agents and shops]
+        Books[Books and audit]
+    end
+
+    Web[Kiosk · Business · Network]
+    Sidecar[Chain sidecar]
+    Program[(Settld program on Solana)]
+
+    In --> Service
+    Service -- live updates --> Web
+    Service --> Sidecar
+    Sidecar --> Program
 ```
 
 A tap or an agent order reaches the payment service, which scores it, checks policy, and asks the sidecar to send the program instruction. The program enforces the limits and moves USDC from the card to the shop. Every result is broadcast to the web pages over a WebSocket with its Solana signature.
