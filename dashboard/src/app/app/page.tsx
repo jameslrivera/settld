@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useFeed } from "@/lib/feed";
 import { api, WS_URL } from "@/lib/api";
 import { usd, plain, explorerTx } from "@/lib/format";
-import { RibbonS, Wordmark } from "@/components/Logo";
+import { Wordmark } from "@/components/Logo";
 
 type Screen = "card" | "activity";
 
@@ -28,7 +28,7 @@ export default function PhoneApp() {
   return (
     <main className="min-h-screen bg-bg text-ink max-w-[430px] mx-auto flex flex-col">
       <header className="px-5 pt-12 pb-3 flex items-center justify-between">
-        <span className="flex items-center gap-2"><RibbonS size={22} /><Wordmark className="text-lg" /></span>
+        <span className="flex items-center gap-2"><Wordmark className="text-lg" /></span>
         {acct && list.length > 1 && (
           <select value={acct.uid} onChange={(e) => setSel(e.target.value)} className="bg-surface-2 text-xs rounded-full px-3 py-1.5 outline-none">
             {list.map((a) => <option key={a.uid} value={a.uid}>{a.name}</option>)}
@@ -54,7 +54,7 @@ export default function PhoneApp() {
             <div className="mt-6 rounded-3xl p-5 bg-gradient-to-br from-[#121214] to-[#1e1e22] border border-line relative overflow-hidden" style={{ aspectRatio: "1.586" }}>
               <div className="absolute -right-10 -top-10 w-44 h-44 rounded-full" style={{ background: "var(--brand)", opacity: 0.14 }} />
               <div className="flex justify-between items-start">
-                <span className="flex items-center gap-2"><RibbonS size={20} /><Wordmark className="text-base" /></span>
+                <span className="flex items-center gap-2"><Wordmark className="text-base" /></span>
                 <span className={`text-[10px] uppercase tracking-widest ${locked ? "text-warn font-semibold" : "text-ink-3"}`}>{locked ? "locked" : acct.status}</span>
               </div>
               <div className="absolute bottom-5 left-5 right-5">

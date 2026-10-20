@@ -7,7 +7,6 @@ import { api, API_URL, WS_URL, type AgentOrder, type MenuItem, type Merchant } f
 import { checkAgentOrder, type KyaCheck } from "@/lib/kya";
 import type { AuthEvent } from "@/lib/feed";
 import { usd, mask, plain } from "@/lib/format";
-import { RibbonS } from "@/components/Logo";
 
 const montserrat = Montserrat({ weight: ["600", "700"], subsets: ["latin"] });
 const franklin = Libre_Franklin({ weight: ["400", "600"], subsets: ["latin"] });
@@ -593,7 +592,7 @@ function Kiosk() {
             <span className="absolute inset-0 rounded-full border-2 animate-ping" style={{ borderColor: "var(--k-accent)", opacity: 0.5 }} />
             <span className="absolute inset-6 rounded-full border-2 animate-ping [animation-delay:300ms]" style={{ borderColor: "var(--k-accent)", opacity: 0.35 }} />
             <span className="absolute inset-12 rounded-full border-2 animate-ping [animation-delay:600ms]" style={{ borderColor: "var(--k-accent)", opacity: 0.25 }} />
-            <div className="w-28 h-20 rounded-xl bg-gradient-to-br from-[#1e1e22] to-[#0d0d0f] border border-[#333] flex items-center justify-center"><RibbonS size={28} /></div>
+            <div className="w-28 h-20 rounded-xl bg-gradient-to-br from-[#1e1e22] to-[#0d0d0f] border border-[#333] flex items-center justify-center"><span className="text-xl font-semibold tracking-[-0.04em] text-white">Settld<span className="text-[#ff2fb6]">.</span></span></div>
           </div>
           <div className={`${headline} text-4xl font-semibold`}>Tap your card</div>
           <div className="text-[var(--k-ink-2)] text-lg">Hold it on the reader until the screen changes</div>
@@ -654,7 +653,7 @@ function ShopButton({ side, onClick }: { side: "left" | "right"; onClick: () => 
 function PoweredBy({ small = false }: { small?: boolean }) {
   return (
     <div className={`flex items-center justify-center gap-2 text-[var(--k-ink-2)] ${small ? "text-xs" : "text-sm"}`}>
-      <span>Pay with</span><RibbonS size={small ? 14 : 18} /><span className="font-semibold tracking-[-0.04em] text-[var(--k-ink)]">Settld<span className="text-[#ff2fb6]">.</span></span><span>· USDC, settled on Solana at the tap</span>
+      <span>Pay with</span><span className="font-semibold tracking-[-0.04em] text-[var(--k-ink)]">Settld<span className="text-[#ff2fb6]">.</span></span><span>· USDC, settled on Solana at the tap</span>
     </div>
   );
 }

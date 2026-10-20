@@ -3,7 +3,7 @@ import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "rea
 import { useSearchParams } from "next/navigation";
 import { api, API_URL, type BookRow, type Books, type Merchant } from "@/lib/api";
 import { usd, plain } from "@/lib/format";
-import { RibbonS, Wordmark } from "@/components/Logo";
+import { Wordmark } from "@/components/Logo";
 
 type Filter = "all" | "card" | "agent" | "stopped";
 type Msg = { role: "user" | "reply"; content: string };
@@ -56,7 +56,7 @@ function Business() {
     <main className="min-h-screen bg-bg text-ink">
       <header className="sticky top-0 z-10 bg-bg/90 backdrop-blur border-b border-line print:hidden">
         <div className="max-w-[1280px] mx-auto px-8 h-16 flex items-center gap-4">
-          <span className="flex items-center gap-2.5"><RibbonS size={24} /><Wordmark className="text-[20px] leading-none" /></span>
+          <span className="flex items-center gap-2.5"><Wordmark className="text-[20px] leading-none" /></span>
           <span className="text-ink-3 text-sm">Business</span>
           <div className="ml-auto flex items-center gap-3">
             <select value={merchantId} onChange={(e) => setMerchantId(Number(e.target.value))} className="bg-surface-2 text-sm rounded-full px-3 py-1.5 outline-none">
@@ -363,7 +363,7 @@ function Report({ books, onClose }: { books: Books; onClose: () => void }) {
     <div className="report fixed inset-0 z-50 bg-bg flex flex-col">
       <style>{`@media print { @page { size: landscape; margin: 0.5in; } body * { visibility: hidden !important; } .report, .report * { visibility: visible !important; } .report { position: absolute; inset: 0; height: auto; display: block; } .report .slide { display: block !important; height: auto !important; min-height: 6.5in; page-break-after: always; break-after: page; padding: 0 !important; } .report .report-ledger { overflow: visible !important; } .report .no-print { display: none !important; } }`}</style>
       <div className="no-print h-16 px-8 flex items-center justify-between border-b border-line">
-        <span className="flex items-center gap-2.5"><RibbonS size={22} /><Wordmark className="text-lg" /><span className="text-ink-3 text-sm ml-1">Audit report</span></span>
+        <span className="flex items-center gap-2.5"><Wordmark className="text-lg" /><span className="text-ink-3 text-sm ml-1">Audit report</span></span>
         <div className="flex items-center gap-2">
           <span className="text-sm text-ink-3 mr-2">{i + 1} / {slides.length}</span>
           <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="w-9 h-9 rounded-full border border-line disabled:opacity-30">‹</button>

@@ -8,7 +8,7 @@ struct AgentCardArt: View {
         CardFace(glow: Theme.pink, frozen: agent.frozen, compact: compact) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .center) {
-                    HStack(spacing: compact ? 5 : 7) { RibbonS(size: compact ? 13 : 20); if !compact { Wordmark(size: 17) } }
+                    Wordmark(size: compact ? 11 : 17)
                     Spacer()
                     Text(agent.frozen ? "FROZEN" : "AGENT")
                         .font(.system(size: compact ? 8 : 10, weight: .semibold)).tracking(compact ? 1.4 : 2)

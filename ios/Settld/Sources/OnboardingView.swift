@@ -22,7 +22,7 @@ struct OnboardingView: View {
             Theme.bg.ignoresSafeArea()
             VStack(spacing: 0) {
                 HStack {
-                    HStack(spacing: 8) { RibbonS(size: 22); Wordmark(size: 18) }
+                    Wordmark(size: 18)
                     Spacer()
                     if step != .issuing { Button("Close") { dismiss() }.font(.footnote).foregroundStyle(Theme.ink3) }
                 }
@@ -67,7 +67,7 @@ struct OnboardingView: View {
                         .animation(.easeInOut(duration: 1.2).repeatForever(autoreverses: true).delay(Double(i) * 0.2), value: pulse)
                 }
                 RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.surface2)
-                    .frame(width: 110, height: 70).overlay(RibbonS(size: 26))
+                    .frame(width: 110, height: 70).overlay(Wordmark(size: 16))
             }
             .frame(height: 260)
             .onAppear { pulse = true }

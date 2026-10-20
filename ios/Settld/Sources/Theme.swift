@@ -19,26 +19,6 @@ enum Theme {
     }
 }
 
-struct RibbonS: View {
-    var size: CGFloat = 28
-    var body: some View {
-        Canvas { ctx, sz in
-            let s = sz.width / 56
-            func face(_ pts: [(CGFloat, CGFloat)], _ c: Color) {
-                var p = Path()
-                p.move(to: CGPoint(x: pts[0].0 * s, y: pts[0].1 * s))
-                for q in pts.dropFirst() { p.addLine(to: CGPoint(x: q.0 * s, y: q.1 * s)) }
-                p.closeSubpath()
-                ctx.fill(p, with: .color(c))
-            }
-            face([(0, 10), (44, 10), (56, 26), (12, 26)], Theme.pink)
-            face([(12, 26), (56, 26), (44, 42), (0, 42)], Theme.pink2)
-            face([(0, 38), (44, 38), (56, 54), (12, 54)], Theme.pink)
-        }
-        .frame(width: size, height: size)
-    }
-}
-
 struct Wordmark: View {
     var size: CGFloat = 22
     var body: some View {

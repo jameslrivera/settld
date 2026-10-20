@@ -90,7 +90,7 @@ struct CardholderView: View {
 
     private var header: some View {
         HStack {
-            HStack(spacing: 8) { RibbonS(size: 26); Wordmark(size: 22) }
+            Wordmark(size: 22)
             Spacer()
             Button { onboarding = true } label: {
                 Image(systemName: "plus").font(.footnote.weight(.semibold)).padding(8).background(Theme.surface2).clipShape(Circle())
@@ -104,7 +104,7 @@ struct CardholderView: View {
             if let closedNote {
                 Text(closedNote).font(.footnote).foregroundStyle(Theme.up).multilineTextAlignment(.center)
             }
-            RibbonS(size: 56)
+            Wordmark(size: 40)
             Text("No card yet").font(.system(size: 28, weight: .semibold, design: .serif))
             Text(error ?? "Hold a blank Settld card to your phone.")
                 .font(.footnote).foregroundStyle(Theme.ink3).multilineTextAlignment(.center)

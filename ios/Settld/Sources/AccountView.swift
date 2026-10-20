@@ -39,7 +39,7 @@ struct AccountView: View {
             Theme.bg.ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    HStack(spacing: 8) { RibbonS(size: 26); Wordmark(size: 22) }
+                    Wordmark(size: 22)
                     Text("Account").font(.system(size: 34, weight: .regular, design: .serif))
                     if let p = person {
                         onSolana

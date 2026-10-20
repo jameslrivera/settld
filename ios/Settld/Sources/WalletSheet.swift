@@ -44,7 +44,6 @@ struct WalletSheet: View {
             Theme.bg.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 16) {
                 HStack(spacing: 8) {
-                    RibbonS(size: 22)
                     Text(mode == .load ? "Load from wallet" : mode == .fund ? "Fund from any wallet" : "Withdraw to wallet").font(.title2.weight(.semibold))
                 }
                 Text(mode == .load ? "From your wallet onto this card." : mode == .fund ? "From Phantom or any Solana wallet." : "From this card back to your wallet.")

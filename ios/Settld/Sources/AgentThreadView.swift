@@ -90,7 +90,7 @@ struct AgentThreadView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 12) {
-                HStack(spacing: 8) { RibbonS(size: 26); Wordmark(size: 22) }
+                Wordmark(size: 22)
                 Spacer()
                 Menu {
                     Button { showMoney = .fund } label: { Label("Load from my card", systemImage: "arrow.down.circle") }

@@ -188,7 +188,6 @@ export default function Network() {
     <main className="min-h-screen bg-bg text-ink px-6 py-5">
       <header className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-3">
-          <Ribbon />
           <span className="text-xl font-semibold tracking-tight">Settld<span className="text-[#ff2fb6]">.</span></span>
           <span className="text-ink-3">/</span>
           <span className="text-ink-2">Network</span>
@@ -459,14 +458,6 @@ function Stat({ label, value, tone }: { label: string; value: string; tone?: "wa
 function Dot({ ok }: { ok: boolean | null }) {
   const c = ok === true ? "bg-up" : ok === false ? "bg-down" : "bg-ink-3 animate-pulse";
   return <span className={`inline-block w-2.5 h-2.5 rounded-full ${c}`} />;
-}
-
-function Ribbon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 56 64" aria-hidden>
-      <path d="M0 10 L44 10 L56 26 L12 26 Z" fill="#ff2fb6" /><path d="M12 26 L56 26 L44 42 L0 42 Z" fill="#b4207f" /><path d="M0 42 L44 42 L56 58 L12 58 Z" fill="#ff2fb6" />
-    </svg>
-  );
 }
 
 type Tx = { key: string; ts: number; what: string; detail: string; cents: number; sign: "+" | "−" | ""; ok: boolean; sig: string | null };

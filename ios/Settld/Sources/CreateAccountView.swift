@@ -14,10 +14,10 @@ struct CreateAccountView: View {
         ZStack {
             Theme.bg.ignoresSafeArea()
             VStack(spacing: 22) {
-                HStack(spacing: 8) { RibbonS(size: 22); Wordmark(size: 18) }
+                Wordmark(size: 18)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer(minLength: 0)
-                RibbonS(size: 64)
+                Wordmark(size: 44)
                 Text("Open your account").font(.system(size: 34, weight: .regular, design: .serif))
                 Text("Stablecoin payment infrastructure for people, business and their agents. The account is you; cards are issued to it.")
                     .font(.body).foregroundStyle(Theme.ink2).multilineTextAlignment(.center)

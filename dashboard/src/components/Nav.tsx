@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Pill } from "./Panel";
 import { api } from "@/lib/api";
-import { RibbonS, Wordmark } from "./Logo";
+import { Wordmark } from "./Logo";
 
 export function Nav({ connected, mode, setMode }: { connected: boolean; mode: string; setMode: (m: string) => void }) {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
@@ -17,7 +17,6 @@ export function Nav({ connected, mode, setMode }: { connected: boolean; mode: st
     <header className="sticky top-0 z-10 bg-bg/90 backdrop-blur border-b border-line">
       <div className="max-w-[1400px] mx-auto px-8 h-16 flex items-center gap-8">
         <div className="flex items-center gap-2.5">
-          <RibbonS size={26} />
           <Wordmark className="text-[22px] leading-none" />
           <span className="text-ink-3 text-xs hidden xl:inline">Ask. Approve. Settld.</span>
         </div>

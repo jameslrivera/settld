@@ -46,7 +46,7 @@ struct CardArt: View {
         CardFace(frozen: locked) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .center) {
-                    HStack(spacing: 7) { RibbonS(size: 20); Wordmark(size: 17) }
+                    Wordmark(size: 17)
                     Spacer()
                     Text(locked ? (account.closed == true ? "CLOSED" : "LOCKED") : "ACTIVE")
                         .font(.system(size: 10, weight: .semibold)).tracking(2)

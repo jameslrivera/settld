@@ -32,9 +32,9 @@ struct AgentsView: View {
 
     private var settingUp: some View {
         VStack(spacing: 14) {
-            HStack(spacing: 8) { RibbonS(size: 26); Wordmark(size: 22); Spacer() }
+            HStack(spacing: 8) { Wordmark(size: 22); Spacer() }
             Spacer()
-            RibbonS(size: 56)
+            Wordmark(size: 40)
             Text(error == nil ? "Setting up your agent" : "Your agent is not ready")
                 .font(.system(size: 28, weight: .regular, design: .serif))
             Text(error ?? "A few seconds.")
